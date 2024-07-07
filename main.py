@@ -18,33 +18,60 @@ def percentage_calculation():
 # CREATING MAIN WINDOW
 root = customtkinter.CTk()
 root.resizable(width=False, height=False)
+root.config(bg= "white")
 root.eval('tk::PlaceWindow . center')
-root.title("Percentile calculation")
+root.title("")
+root.iconbitmap("percent_icon.ico")
 root.geometry("200x250")
 
+
 # CREATING CENTRAL FRAME
-central_frame = tk.Frame(root) # CAMBIARE BACKGROUND COLOR NEL FRAME E RENDERLO UGUALE AL RESTO: GRIGIO SCURO
+central_frame = tk.Frame(root, bg= "white") # CAMBIARE BACKGROUND COLOR NEL FRAME E RENDERLO UGUALE AL RESTO: GRIGIO SCURO
 central_frame.pack(expand=True)
 
 # CREATING WIDGETS INSIDE CENTRAL FRAME
-label1 = tk.Label(central_frame, text="First value")
+label1 = tk.Label(central_frame, 
+                #   text="First value", 
+                  font= "bold"
+                  )
 label1.pack(pady=2)
 
-entry1 = tk.Entry(central_frame)
+entry1 = customtkinter.CTkEntry(central_frame, 
+                                corner_radius= 50,
+                                text_color= "black",
+                                placeholder_text= "First number",
+                                fg_color= ("blue", "white")
+                                )
 entry1.pack(pady=5)
 
-label2 = tk.Label(central_frame, text="Second value")
-label2.pack(pady=2)
+label2 = tk.Label(central_frame, 
+                #   text="Second value", 
+                  font= "bold"
+                  )
+label2.pack(pady=5)
 
-entry2 = tk.Entry(central_frame)
+entry2 = customtkinter.CTkEntry(central_frame, 
+                                corner_radius= 50,
+                                text_color= "black",
+                                placeholder_text= "Second number",
+                                fg_color= ("blue", "white")
+                                )
 entry2.pack(pady=5)
 
 # BUTTON TO DO THE CALCULATION
-button = customtkinter.CTkButton(master=central_frame, text="Calculate", command=percentage_calculation)
+button = customtkinter.CTkButton(master=central_frame, 
+                                 text="Calculate", 
+                                 command=percentage_calculation, 
+                                 font= ("Arial", 15)
+                                 )
 button.pack(pady=5)
 
 # LABEL TO SHOW THE RESULT
-label_result = tk.Label(central_frame, text="Result: ")
+label_result = tk.Label(central_frame, 
+                        text="Result: ", 
+                        font= "bold", 
+                        bg= "white"
+                        )
 label_result.pack(pady=8)
 
 root.mainloop()
